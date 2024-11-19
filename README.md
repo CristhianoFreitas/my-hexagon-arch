@@ -11,3 +11,4 @@ Projeto inicial de referência utilizando a arquitetura hexagonal.
 http://localhost:8080/h2-console 
 sa
 pass	
+
