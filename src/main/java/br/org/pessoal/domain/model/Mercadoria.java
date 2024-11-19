@@ -24,4 +24,8 @@ public class Mercadoria {
     @Valid
     @NotNull
     private DepartamentoMercadoria departamento;
+
+    @Valid
+    @NotNull
+    private Vigencia vigencia;
 }

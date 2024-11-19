@@ -1,5 +1,8 @@
 package br.org.pessoal.adapter.out.persistence;
 
+import static br.org.pessoal.domain.exception.CodigoErroEnum.ERRO_CONSULTA;
+import static br.org.pessoal.domain.exception.TipoErroEnum.OUTRO;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -8,9 +11,7 @@ import org.springframework.stereotype.Service;
 
 import br.org.pessoal.adapter.out.persistence.mapper.MercadoriaMapper;
 import br.org.pessoal.adapter.out.persistence.repository.MercadoriaRepository;
-import br.org.pessoal.domain.exception.CodigoErroEnum;
 import br.org.pessoal.domain.exception.GeralException;
-import br.org.pessoal.domain.exception.TipoErroEnum;
 import br.org.pessoal.domain.model.Mercadoria;
 import br.org.pessoal.domain.port.out.EscritaMercadoriasPort;
 import br.org.pessoal.domain.port.out.LeituraMercadoriasPort;
@@ -30,11 +31,7 @@ public class MercadoriaPersistenceAdapter implements LeituraMercadoriasPort, Esc
             repository.save(mapper.mapearParaMercadoriaEntity(mercadoria));
 
         } catch (DataAccessException e) {
-             throw new GeralException(e.getMessage(),
-             "Falha ao criar mercadoria",
-             TipoErroEnum.OUTRO,
-             CodigoErroEnum.ERRO_LISTAGEM,
-             e);
+            throw new GeralException(e.getMessage(), "Falha ao criar mercadoria", OUTRO, ERRO_CONSULTA, e);
         }
     }
 
@@ -45,11 +42,7 @@ public class MercadoriaPersistenceAdapter implements LeituraMercadoriasPort, Esc
             return mapper.mapearParaMercadorias(entities);
 
         } catch (DataAccessException e) {
-            throw new GeralException(e.getMessage(),
-                "Falha na listagem de mercadorias",
-                TipoErroEnum.OUTRO,
-                CodigoErroEnum.ERRO_LISTAGEM,
-                e);
+            throw new GeralException(e.getMessage(), "Falha na listagem de mercadorias", OUTRO, ERRO_CONSULTA, e);
         }
     }
 
@@ -59,11 +52,7 @@ public class MercadoriaPersistenceAdapter implements LeituraMercadoriasPort, Esc
             return repository.findById(id).map(mapper::mapearParaMercadoria);
 
         } catch (DataAccessException e) {
-            throw new GeralException(e.getMessage(),
-                "Falha ao recuperar mercadoria pelo id",
-                TipoErroEnum.OUTRO,
-                CodigoErroEnum.ERRO_LISTAGEM,
-                e);
+            throw new GeralException(e.getMessage(), "Falha ao recuperar mercadoria pelo id", OUTRO, ERRO_CONSULTA, e);
         }
     }
 }

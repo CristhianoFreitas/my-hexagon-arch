@@ -21,4 +21,7 @@ public class MercadoriaDTO {
 
     @JsonProperty("departamento")
     private DepartamentoMercadoriaDTO departamento;
+
+    @JsonProperty("vigencia")
+    private VigenciaDTO vigencia;
 }

@@ -11,6 +11,10 @@ public enum TipoErroEnum {
      */
     VALIDACAO,
     /**
+     * Se refere aos tipos de erro na qual tem relação com o negócio.
+     */
+    NEGOCIO,
+    /**
      * Se refere aos tipos de erro na qual a entrada não foi encontrada.
      */
     NAO_ENCONTRADO,

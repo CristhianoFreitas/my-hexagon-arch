@@ -12,9 +12,12 @@ public enum CodigoErroEnum {
      * Tipo de erro desconhecido
      */
     ERRO_DESCONHECIDO,
-
     /**
-     * Erro em listagem
+     * Erro ao consultar dado
      */
-    ERRO_LISTAGEM
+    ERRO_CONSULTA,
+    /**
+     * Erro de persistência
+     */
+    ERRO_PERSISTENCIA;
 }
